@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
         score = (int)(Mathf.Max(score, (transform.position.y * 1.04f)));
         if (score > 25) { 
-            CameraController.factor = CameraController.factor + (int)((score / 25) * 0.1f);
+            CameraController.factor = 1 + ((score / 25) * 0.1f);
         }
 
         //update multiplicative factor of screen moving speed

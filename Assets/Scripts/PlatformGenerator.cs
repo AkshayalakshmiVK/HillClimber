@@ -13,10 +13,11 @@ public class PlatformGenerator : MonoBehaviour
     [SerializeField] public GameObject[] traps;
     [SerializeField] public Transform reference;
     float dy = 1.74f;
-    float dx = 7.66f;
+    float dx = 7.17f;
     int count = 0;
     int count2 = 0;
     int l1 = 1;
+    int l2 = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,20 +46,41 @@ public class PlatformGenerator : MonoBehaviour
                     l1 = 2;
                     break;
                 case 2:
-                    int i = Random.Range(0, 2);
-                    if (i == 0)
+                    if (l2 == 0)
                     {
-                        transform.position = new Vector2(transform.position.x - dx, transform.position.y);
-                        Instantiate(platform, transform.position, transform.rotation);
-                        transform.position = new Vector2(transform.position.x + dx, transform.position.y + dy);
-                        l1 = 1;
+                        int i = Random.Range(0, 2);
+                        if (i == 0)
+                        {
+                            transform.position = new Vector2(transform.position.x - dx, transform.position.y);
+                            Instantiate(platform, transform.position, transform.rotation);
+                            transform.position = new Vector2(transform.position.x + dx, transform.position.y + dy);
+                            l1 = 1;
+                        }
+                        else
+                        {
+                            transform.position = new Vector2(transform.position.x + dx, transform.position.y);
+                            Instantiate(platform, transform.position, transform.rotation);
+                            transform.position = new Vector2(transform.position.x - dx, transform.position.y + dy);
+                            l1 = 3;
+                        }
                     }
                     else
                     {
-                        transform.position = new Vector2(transform.position.x + dx, transform.position.y);
-                        Instantiate(platform, transform.position, transform.rotation);
-                        transform.position = new Vector2(transform.position.x - dx, transform.position.y + dy);
-                        l1 = 3;
+                        if (l2 == 3)
+                        {
+                            transform.position = new Vector2(transform.position.x - dx, transform.position.y);
+                            Instantiate(platform, transform.position, transform.rotation);
+                            transform.position = new Vector2(transform.position.x + dx, transform.position.y + dy);
+                            l1 = 1;
+                        }
+                        else
+                        {
+                            transform.position = new Vector2(transform.position.x + dx, transform.position.y);
+                            Instantiate(platform, transform.position, transform.rotation);
+                            transform.position = new Vector2(transform.position.x - dx, transform.position.y + dy);
+                            l1 = 3;
+                        }
+
                     }
                     break;
                 default:
@@ -73,6 +95,11 @@ public class PlatformGenerator : MonoBehaviour
                 int obsType = Random.Range(1, 3);
                 CreateObstacle(obs, obsType);
                 count = 0;
+                l2 = obs;
+            }
+            else
+            {
+                l2 = 0;
             }
 
             choice = Random.Range(1, 2);
@@ -102,18 +129,6 @@ public class PlatformGenerator : MonoBehaviour
         int index = Random.Range(0, traps.Length);
         Instantiate(traps[index], transform.position, transform.rotation);
 
-        /*switch (obsType)
-        {
-            case 1:
-                Instantiate(cloud, transform.position, transform.rotation);
-                break;
-            case 2:
-                Instantiate(slippery, transform.position, transform.rotation);
-                break;
-            case 3:
-                Instantiate(thorn, transform.position, transform.rotation);
-                break;
-        }*/
         switch (obs)
         {
             case 1:

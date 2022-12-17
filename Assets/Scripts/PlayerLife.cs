@@ -22,7 +22,8 @@ public class PlayerLife : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        
+
+        dead = false;
         TimeBar.enabled = false;
         rb = GetComponent<Rigidbody2D>();
         CamHeight = Camera.main.orthographicSize;
@@ -51,8 +52,8 @@ public class PlayerLife : MonoBehaviour
         {
             if (freeze == true)
             {
-                CameraController.CameraSpeed += 0.02f;
-                BackgroundScroller.dy += 0.02f;
+                CameraController.CameraSpeed += 0.01f;
+                BackgroundScroller.dy += 0.01f;
             }
             shield = false;
             freeze = false;

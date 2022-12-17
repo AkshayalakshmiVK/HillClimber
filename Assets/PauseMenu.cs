@@ -10,21 +10,33 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     private float fixedDeltaTime;
     private float Camspeed;
-    [SerializeField] GameObject GameOver;
+    /*[SerializeField] GameObject GameOver;
     [SerializeField] GameObject scoreText;
     [SerializeField] GameObject panel;
+    [SerializeField] GameObject RestartEnd;
+    [SerializeField] GameObject MenuEnd;*/
     
     void Awake()
     {
         // Make a copy of the fixedDeltaTime, it defaults to 0.02f, but it can be changed in the editor
         this.fixedDeltaTime = Time.fixedDeltaTime;
-        GameOver.SetActive(false);
+        /*GameOver.SetActive(false);
         scoreText.SetActive(false);
         panel.SetActive(false);
+        RestartEnd.SetActive(false);
+        MenuEnd.SetActive(false);*/
+
     }
     void start()
     {
-        
+        Camspeed = CameraController.CameraSpeed;
+        this.fixedDeltaTime = Time.fixedDeltaTime;
+        /*GameOver.SetActive(false);
+        scoreText.SetActive(false);
+        panel.SetActive(false);
+        RestartEnd.SetActive(false);
+        MenuEnd.SetActive(false);*/
+
     }
     // Update is called once per frame
     void Update()
@@ -40,13 +52,15 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
-        if( PlayerLife.dead == true)
+        /*if( PlayerLife.dead == true)
         {
             GameOver.SetActive(true);
             scoreText.SetActive(true);
             panel.SetActive(true);
+            RestartEnd.SetActive(true);
+            MenuEnd.SetActive(true);
             Debug.Log(PlayerLife.dead);
-        }
+        }*/
         
     }
     public void Resume()
@@ -74,14 +88,23 @@ public class PauseMenu : MonoBehaviour
         CameraController.CameraSpeed = Camspeed;
         BackgroundScroller.dy = Camspeed;
         GamePaused = false;
+        PlayerLife.dead = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
     public void Restart()
     {
+        this.fixedDeltaTime = Time.fixedDeltaTime;
+        /*GameOver.SetActive(false);
+        scoreText.SetActive(false);
+        panel.SetActive(false);
+        RestartEnd.SetActive(false);
+        MenuEnd.SetActive(false);*/
+
         Time.timeScale = 1f;
         CameraController.CameraSpeed = Camspeed;
         BackgroundScroller.dy = Camspeed;
         GamePaused = false;
+        PlayerLife.dead = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

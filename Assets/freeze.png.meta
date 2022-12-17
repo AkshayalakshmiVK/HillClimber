@@ -113,7 +113,7 @@ TextureImporter:
         width: 336
         height: 369
       alignment: 9
-      pivot: {x: 0.5109936, y: -0.37210968}
+      pivot: {x: 0.50879645, y: -0.4261254}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -8329,8 +8329,8 @@ TextureImporter:
       freeze_63: 1708862918
       freeze_317: -2125760758
       freeze_274: 652225749
-      freeze_335: -1824397519
       freeze_49: 263734971
+      freeze_335: -1824397519
       freeze_364: -1632498171
       freeze_110: -563147275
       freeze_126: 522509342

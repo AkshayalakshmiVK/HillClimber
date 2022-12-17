@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2779603405063653628}
   - component: {fileID: 2779603405063653630}
   - component: {fileID: 2779603405063653629}
+  - component: {fileID: -7145633347371494314}
   m_Layer: 6
   m_Name: Slippery
   m_TagString: Slippery
@@ -74,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1672436910, guid: 4f705fff7034262459f86d6aedd37ed7, type: 3}
+  m_Sprite: {fileID: 493922917, guid: 6ee58500062c8ce489cd5ce5c120d80c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10.375, y: 2.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,16 +99,28 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.40172386}
+  m_Offset: {x: -0.19875956, y: 0.6508293}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.5625, y: 2.9375}
-    newSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5616647}
+    oldSize: {x: 10.375, y: 2.125}
+    newSize: {x: 10.375, y: 2.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.125, y: 0.30364633}
+  m_Size: {x: 9.589612, y: 0.22818428}
   m_EdgeRadius: 0
+--- !u!114 &-7145633347371494314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2779603405063653627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe27f76eb3dce64a95049268c44a421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
